@@ -82,7 +82,10 @@ const App = ({
 export const Isoflow = (props: IsoflowProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <ModelProvider>
+      <ModelProvider
+        collabRoomId={props.collabRoomId}
+        enableBrowserStorage={props.enableBrowserStorage}
+      >
         <SceneProvider>
           <UiStateProvider>
             <App {...props} />
