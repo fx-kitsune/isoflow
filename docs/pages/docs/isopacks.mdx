@@ -1,11 +1,11 @@
 # Isopacks
 
-**Isopacks** are add-on modules for Isoflow that contain icons and other assets.  You can easily build your own from scratch or create and load your own.
+**Isopacks** là các mô-đun bổ sung cho Isoflow, chứa các biểu tượng và các tài nguyên khác. Bạn có thể dễ dàng tự xây dựng isopacks từ đầu hoặc tạo và tải isopacks của riêng bạn.
 
-### Cloud & Network Isopacks
+### Các Isopacks cho Đám mây & Mạng
 
-These are available as a separately maintained project on [Github](https://github.com/markmanx/isopacks).
-Below is a sample of icons available in the **Isoflow** Isopack:
+Chúng có sẵn như một dự án được duy trì riêng biệt trên [Github](https://github.com/markmanx/isopacks).
+Dưới đây là một số mẫu biểu tượng có sẵn trong Isopack **Isoflow**:
 
 <div style={{ display: 'flex', paddingTop: 15 }}>
 <img src="https://isoflow-public.s3.eu-west-2.amazonaws.com/isopacks/isoflow/server.svg" alt="server" width="100"/>
@@ -13,18 +13,18 @@ Below is a sample of icons available in the **Isoflow** Isopack:
 <img src="https://isoflow-public.s3.eu-west-2.amazonaws.com/isopacks/isoflow/switch-module.svg" alt="switch" width="100"/>
 </div>
 
-In addition, Isopacks for **AWS**, **Azure**, **GCP**, and **Kubernetes** are included.
-You can choose which Isopacks to import into your app and which to leave out.
+Ngoài ra, các Isopacks cho **AWS**, **Azure**, **GCP**, và **Kubernetes** cũng được bao gồm.
+Bạn có thể chọn những Isopack nào để nhập vào ứng dụng của mình và bỏ lại những cái nào.
 
-### Loading Isopacks into Isoflow
+### Tải Isopacks vào Isoflow
 
-1. Install the `npm` package:
+1. Cài đặt gói `npm`:
 
 ```bash
 npm i @isoflow/isopacks
 ```
 
-2. Import your selected Isopacks:
+2. Nhập các Isopacks bạn đã chọn:
 
 ```jsx showLineNumbers
 import Isoflow from 'isoflow';
@@ -58,11 +58,11 @@ const App = () => {
 export default App;
 ```
 
-## Usage without Isoflow
+## Sử dụng không cần Isoflow
 
-Isopacks can also be used without Isoflow or React (for example, you can simply drag and drop the images into slides or documents, or import into your vanilla Javascript / Typescript project).
-See the [Isopacks Github project](https://github.com/markmanx/isopacks) for more information.
+Isopacks cũng có thể được sử dụng mà không cần Isoflow hoặc React (ví dụ: bạn có thể kéo thả trực tiếp hình ảnh vào slide hoặc tài liệu, hoặc nhập vào dự án Javascript / Typescript cơ bản của bạn).
+Xem [dự án Github Isopacks](https://github.com/markmanx/isopacks) để biết thêm thông tin.
 
-## Self-hosting vs importing icons
+## Tự lưu trữ so với nhập biểu tượng
 
-While you can import the icon images directly into your JS or TS application, it is recommended that you host the icon images yourself so that they can be lazy-loaded (referencing them via URL from a service like S3 or a CDN).
+Mặc dù bạn có thể nhập trực tiếp hình ảnh biểu tượng vào ứng dụng JS hoặc TS của mình, nhưng chúng tôi khuyên bạn nên tự lưu trữ hình ảnh biểu tượng để chúng có thể được tải chậm (lazy-loaded) bằng cách tham chiếu chúng thông qua URL từ một dịch vụ như S3 hoặc CDN.

@@ -1,12 +1,12 @@
-# Quick Start
+# Bắt đầu nhanh
 
-Isoflow can be imported as an ES6 module:
+Isoflow có thể được nhập dưới dạng một ES6 module:
 
 ```jsx
 import Isoflow from "isoflow";
 ```
 
-### Basic usage
+### Sử dụng cơ bản
 
 ```jsx showLineNumbers
 import React from 'react';
@@ -21,15 +21,15 @@ const App = () => {
 export default App;
 ```
 
-**Note**: this will display a blank Isoflow editor, without icons (which is not very useful!).  To initialise the editor with an iconset, see [Loading Isopacks](/docs/isopacks).
+**Lưu ý**: thao tác này sẽ hiển thị một trình chỉnh sửa Isoflow trống rỗng, không có biểu tượng (điều này không hữu ích lắm!). Để khởi tạo trình chỉnh sửa với một bộ biểu tượng, hãy xem [Tải Isopacks](/docs/isopacks).
 
-### Dimensions of Isoflow
+### Kích thước của Isoflow
 
-Isoflow takes _100%_ of `width` and `height` of the containing block so make sure the container in which you render Isoflow in has non-zero dimensions.
+Isoflow chiếm _100%_ `width` (chiều rộng) và `height` (chiều cao) của khối chứa nó, vì vậy hãy đảm bảo container mà bạn dùng để hiển thị Isoflow có kích thước lớn hơn 0.
 
-### Integration with NextJS
+### Tích hợp với NextJS
 
-Isoflow cannot be server-side rendered and has to be imported using `next/dyanmic`:
+Isoflow không thể được kết xuất ở phía máy chủ (server-side rendered) và phải được nhập bằng cách sử dụng `next/dynamic`:
 
 ```jsx showLineNumbers filename="IsoflowDynamic.jsx"
 import dynamic from 'next/dynamic';

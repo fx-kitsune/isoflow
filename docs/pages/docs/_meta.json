@@ -1,8 +1,8 @@
 {
-    "index": "About the Community Edition",
-    "installation": "Installation",
-    "quickstart": "Quick start",
-    "isopacks": "Loading Isopacks",
+    "index": "Giới thiệu về Community Edition",
+    "installation": "Cài đặt",
+    "quickstart": "Bắt đầu nhanh",
+    "isopacks": "Tải Isopacks",
     "api": "API",
-    "contributing": "Contributing"
+    "contributing": "Đóng góp"
 }

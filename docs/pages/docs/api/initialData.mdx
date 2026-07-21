@@ -1,8 +1,8 @@
 # `initialData`
 
-The `initialData` object contains the following properties:
+Đối tượng `initialData` chứa các thuộc tính sau:
 
-| Name | Type | Default |
+| Tên | Kiểu | Mặc định |
 | --- | --- | --- |
 | `version` | `string \| undefined` | `undefined` |
 | `title` | `string \| undefined` | `undefined` |
@@ -13,8 +13,8 @@ The `initialData` object contains the following properties:
 | `views` | [`View[]`](#view) | `[]` |
 | `fitToScreen` | `boolean` | `false` |
 
-## Example payload
-An example payload can be found here on [CodeSandbox](https://codesandbox.io/p/sandbox/github/markmanx/isoflow/tree/main).
+## Ví dụ về payload
+Bạn có thể tìm thấy một payload ví dụ tại đây trên [CodeSandbox](https://codesandbox.io/p/sandbox/github/markmanx/isoflow/tree/main).
 
 ## `Icon`
 
@@ -28,9 +28,9 @@ An example payload can be found here on [CodeSandbox](https://codesandbox.io/p/s
 }
 ```
 
-**Notes on Icons:**
-- `collection` is an optional property that can be used to group icons together in the icon picker.  All icons with the same `collection` will be grouped together under the collection's name.
-- If you are using a non-isometric icon image, you can set `isIsometric` to `false` to render it with an isometric perpective and help it blend into the scene.
+**Lưu ý về Biểu tượng (Icons):**
+- `collection` là một thuộc tính tùy chọn có thể được sử dụng để nhóm các biểu tượng lại với nhau trong bộ chọn biểu tượng. Tất cả các biểu tượng có cùng `collection` sẽ được nhóm lại dưới tên của collection đó.
+- Nếu bạn đang sử dụng một hình ảnh biểu tượng không thuộc dạng isometric, bạn có thể thiết lập `isIsometric` thành `false` để hiển thị nó với một góc nhìn isometric và giúp nó hòa nhập vào bối cảnh tốt hơn.
 
 ## `Color`
 
@@ -41,8 +41,8 @@ An example payload can be found here on [CodeSandbox](https://codesandbox.io/p/s
 }
 ```
 
-**Notes on Colors:**
-The `value` property accepts any color value in a CSS acceptable format (e.g. a hex value like `#000000`, a string value for example `black` or an rgba value for example `rgba(0, 0, 0, 1)`).
+**Lưu ý về Màu sắc (Colors):**
+Thuộc tính `value` chấp nhận mọi giá trị màu sắc trong một định dạng hợp lệ của CSS (ví dụ: một giá trị hex như `#000000`, một giá trị chuỗi ví dụ như `black` hoặc một giá trị rgba như `rgba(0, 0, 0, 1)`).
 
 ## `Item`
 
@@ -55,9 +55,9 @@ The `value` property accepts any color value in a CSS acceptable format (e.g. a 
 }
 ```
 
-**Notes on Items:**
-- The `description` property can accept markdown.
-- The `icon` property accepts the `id` of an `Icon`.
+**Lưu ý về Mục (Items):**
+- Thuộc tính `description` có thể chấp nhận định dạng markdown.
+- Thuộc tính `icon` chấp nhận `id` của một `Icon`.
 
 ## `View`
 
@@ -73,8 +73,8 @@ The `value` property accepts any color value in a CSS acceptable format (e.g. a 
 }
 ```
 
-**Notes on Views:**
-- The `description` property can accept markdown.
+**Lưu ý về Giao diện (Views):**
+- Thuộc tính `description` có thể chấp nhận định dạng markdown.
 
 ## `ViewItem`
 
@@ -89,8 +89,8 @@ The `value` property accepts any color value in a CSS acceptable format (e.g. a 
 }
 ```
 
-**Notes on ViewItems:**
-- The `id` property accepts the `id` of an `Item` (defined at root level).
+**Lưu ý về Mục của Giao diện (ViewItems):**
+- Thuộc tính `id` chấp nhận `id` của một `Item` (được định nghĩa ở cấp gốc).
 
 ## `Connector`
 
@@ -105,9 +105,9 @@ The `value` property accepts any color value in a CSS acceptable format (e.g. a 
 }
 ```
 
-**Notes on connectors:**
-- The `color` property accepts an `id` of a `Color` (defined at root level).
-- A connector needs a minimum of 2 anchors to determine where it starts and ends. If you want more control over the connector's path you can specify additional anchors that the connector will pass through.
+**Lưu ý về Các đường kết nối (Connectors):**
+- Thuộc tính `color` chấp nhận một `id` của một `Color` (được định nghĩa ở cấp gốc).
+- Một đường kết nối cần tối thiểu 2 điểm neo (anchors) để xác định điểm bắt đầu và kết thúc của nó. Nếu bạn muốn kiểm soát nhiều hơn đường đi của đường kết nối, bạn có thể chỉ định các điểm neo bổ sung mà đường kết nối sẽ đi qua.
 
 ## `ConnectorAnchor`
 
@@ -125,9 +125,9 @@ ref:
     }
 ```
 
-**Notes on ConnectorAnchors**
-- Connector anchors can reference either a `tile` or an `item`.  If the reference is to an `item`, the anchor is dynamic and will be tied to the item's position.
-- When anchoring a connector to an `item`, you must specify the `id` of the of the item being referred to.
+**Lưu ý về Các điểm neo đường kết nối (ConnectorAnchors)**
+- Các điểm neo đường kết nối có thể tham chiếu đến một `tile` hoặc một `item`. Nếu tham chiếu đến một `item`, điểm neo sẽ có tính động và sẽ được gắn liền với vị trí của mục đó.
+- Khi neo một đường kết nối vào một `item`, bạn phải chỉ định `id` của mục đang được tham chiếu.
 
 ## `Rectangle`
 
@@ -161,11 +161,11 @@ ref:
 }
 ```
 
-## Validation
-The `initialData` object is validated before Isoflow renders the scene, and an error is thrown if invalid data is detected.
+## Xác thực (Validation)
+Đối tượng `initialData` được xác thực trước khi Isoflow hiển thị bối cảnh, và sẽ có lỗi ném ra nếu phát hiện dữ liệu không hợp lệ.
 
-Examples of common errors are as follows:
-- A `ConnectorAnchor` references an `Item` that does not exist.
-- An `Item` references an `Icon` that does not exist.
-- A `Rectangle` has a `from` but not a `to` property.
-- A `Connector` has less than 2 anchors.
+Dưới đây là một số ví dụ về các lỗi thường gặp:
+- Một `ConnectorAnchor` tham chiếu đến một `Item` không tồn tại.
+- Một `Item` tham chiếu đến một `Icon` không tồn tại.
+- Một `Rectangle` có thuộc tính `from` nhưng lại thiếu thuộc tính `to`.
+- Một `Connector` có ít hơn 2 điểm neo.
