@@ -52,8 +52,10 @@ const initialState = (
     deviceId
   });
 
+  const withYjs = typeof yjs === 'function' ? yjs : (yjs as any).default || yjs;
+
   return createStore<ModelStore>(
-    yjs(doc, 'isoflow-store', (set: any, get: any) => {
+    withYjs(doc, 'isoflow-store', (set: any, get: any) => {
       return {
         ...INITIAL_DATA,
         actions: {
