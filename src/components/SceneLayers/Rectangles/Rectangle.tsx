@@ -6,7 +6,7 @@ import { useColor } from 'src/hooks/useColor';
 
 type Props = ReturnType<typeof useScene>['rectangles'][0];
 
-export const Rectangle = ({ from, to, color: colorId }: Props) => {
+export const Rectangle = React.memo(({ from, to, color: colorId }: Props) => {
   const color = useColor(colorId);
 
   return (
@@ -21,4 +21,6 @@ export const Rectangle = ({ from, to, color: colorId }: Props) => {
       }}
     />
   );
-};
+});
+
+Rectangle.displayName = 'Rectangle';

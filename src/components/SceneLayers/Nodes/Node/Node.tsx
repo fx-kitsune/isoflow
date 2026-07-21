@@ -17,7 +17,7 @@ interface Props {
   order: number;
 }
 
-export const Node = ({ node, order }: Props) => {
+export const Node = React.memo(({ node, order }: Props) => {
   const modelItem = useModelItem(node.id);
   const { iconComponent } = useIcon(modelItem.icon);
 
@@ -87,4 +87,6 @@ export const Node = ({ node, order }: Props) => {
       </Box>
     </Box>
   );
-};
+});
+
+Node.displayName = 'Node';
