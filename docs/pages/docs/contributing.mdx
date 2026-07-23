@@ -1,26 +1,26 @@
-# Contributing
+# Đóng góp
 
-### Branching Strategy:
+### Chiến lược phân nhánh:
 
-Branches are named using the following convention:
+Các nhánh (branches) được đặt tên theo quy ước sau:
 
-- `feature/` for new feature implementations
-- `fix/` for broken code / build / bug fixes
-- `chore/` non-breaking & non-fixing code changes such as linting, formatting, etc.
+- `feature/` cho các triển khai tính năng mới
+- `fix/` cho các bản sửa lỗi mã nguồn bị hỏng / lỗi build / sửa lỗi bug
+- `chore/` cho các thay đổi mã nguồn không gây lỗi hỏng hóc & không phải sửa lỗi, chẳng hạn như dọn dẹp mã (linting), định dạng (formatting), v.v.
 
-### Commit / PR Strategy:
+### Chiến lược Commit / PR (Pull Request):
 
-- Commits are to be squashed prior to merge
-- PRs are to target a singular issue in order to keep the commit history clean and easy to follow
+- Các commit phải được gộp lại (squashed) trước khi merge
+- Mỗi PR chỉ nên nhắm vào một vấn đề duy nhất để giữ cho lịch sử commit gọn gàng và dễ theo dõi
 
-### Deploying to NPM
+### Triển khai lên NPM
 
-CI is sensitive to any tag pushed to `main` branch. It will build and deploy the app to NPM.
-To deploy:
+CI (Tích hợp liên tục) sẽ tự động kích hoạt đối với bất kỳ thẻ (tag) nào được đẩy lên nhánh `main`. Nó sẽ xây dựng và triển khai ứng dụng lên NPM.
+Để triển khai:
 
-1. Bump the version using `npm version patch` or similar
+1. Tăng phiên bản bằng cách sử dụng `npm version patch` hoặc tương tự
 2. `git push && git push --tags`
 
-## License
+## Giấy phép
 
-Isoflow is MIT licensed (see [./LICENSE](https://github.com/markmanx/isoflow/blob/main/LICENSE)).
+Isoflow được cấp phép theo MIT (xem [./LICENSE](https://github.com/markmanx/isoflow/blob/main/LICENSE)).

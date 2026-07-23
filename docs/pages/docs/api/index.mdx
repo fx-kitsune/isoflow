@@ -1,11 +1,11 @@
 # Props
 
-| Name | Type | Description | Default |
+| Tên | Kiểu | Mô tả | Mặc định |
 | --- | --- | --- | --- |
-| `initialData` | [`object`](/docs/api/initialData) | The initial data that Isoflow will render. If `undefined`, isoflow loads a blank scene. | `undefined` |
-| `width` | `number` \| `string` | Width of the Isoflow renderer as a CSS value. | `100%` |
-| `height` | `number` \| `string` | Height of the Isoflow renderer as a CSS value. | `100%` |
-| `onModelUpdate` | `function` | A callback that is triggered whenever an item is added, updated or removed from the Model. The callback is called with the updated Model as the first argument. | `undefined` |
-| `enableDebugTools` | `boolean` | Enables extra tools for debugging purposes. | `false` |
-| `editorMode` | `"EXPLORABLE_READONLY"` \| `"NON_INTERACTIVE"` \| `"EDITABLE"` | Enables / disables editor features. | `"EDITABLE"` |
-| `mainMenuOptions` | `("ACTION.OPEN" \| "EXPORT.JSON" \| "EXPORT.PNG" \| "ACTION.CLEAR_CANVAS" \| "LINK.GITHUB" \| "LINK.DISCORD" \| "VERSION")[]` | Shows / hides options in the main menu.  If `[]` is passed, the menu is hidden. | All enabled |
+| `initialData` | [`object`](/docs/api/initialData) | Dữ liệu khởi tạo mà Isoflow sẽ hiển thị. Nếu là `undefined`, isoflow sẽ tải một màn hình trống. | `undefined` |
+| `width` | `number` \| `string` | Chiều rộng của trình kết xuất Isoflow dưới dạng giá trị CSS. | `100%` |
+| `height` | `number` \| `string` | Chiều cao của trình kết xuất Isoflow dưới dạng giá trị CSS. | `100%` |
+| `onModelUpdate` | `function` | Một hàm callback được kích hoạt bất cứ khi nào một mục được thêm, cập nhật hoặc xóa khỏi Mô hình (Model). Hàm callback được gọi với Mô hình đã cập nhật làm tham số đầu tiên. | `undefined` |
+| `enableDebugTools` | `boolean` | Bật các công cụ bổ sung cho mục đích gỡ lỗi (debugging). | `false` |
+| `editorMode` | `"EXPLORABLE_READONLY"` \| `"NON_INTERACTIVE"` \| `"EDITABLE"` | Bật / tắt các tính năng của trình chỉnh sửa. | `"EDITABLE"` |
+| `mainMenuOptions` | `("ACTION.OPEN" \| "EXPORT.JSON" \| "EXPORT.PNG" \| "ACTION.CLEAR_CANVAS" \| "LINK.GITHUB" \| "LINK.DISCORD" \| "VERSION")[]` | Hiển thị / ẩn các tùy chọn trong menu chính. Nếu truyền mảng rỗng `[]`, menu sẽ bị ẩn. | Bật tất cả |
