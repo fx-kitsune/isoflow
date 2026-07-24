@@ -7,6 +7,12 @@ export type InitialData = Model & {
   view?: string;
 };
 
+export interface LlmOptions {
+  apiKey: string;
+  apiUrl?: string;
+  model?: string;
+}
+
 export interface IsoflowProps {
   initialData?: InitialData;
   mainMenuOptions?: MainMenuOptions;
@@ -18,4 +24,5 @@ export interface IsoflowProps {
   renderer?: RendererProps;
   collabRoomId?: string;
   enableBrowserStorage?: boolean;
+  llmOptions?: LlmOptions;
 }

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import { Box, useTheme, Typography, Stack } from '@mui/material';
-import { ChevronRight } from '@mui/icons-material';
+import { ChevronRight, Chat } from '@mui/icons-material';
 import { EditorModeEnum } from 'src/types';
 import { UiElement } from 'components/UiElement/UiElement';
 import { SceneLayer } from 'src/components/SceneLayer/SceneLayer';
@@ -15,7 +15,9 @@ import { useResizeObserver } from 'src/hooks/useResizeObserver';
 import { ContextMenuManager } from 'src/components/ContextMenu/ContextMenuManager';
 import { useScene } from 'src/hooks/useScene';
 import { useModelStore } from 'src/stores/modelStore';
+import { IconButton } from 'src/components/IconButton/IconButton';
 import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
+import { ChatPanel } from '../ChatPanel/ChatPanel';
 
 const ToolsEnum = {
   MAIN_MENU: 'MAIN_MENU',
@@ -43,7 +45,6 @@ const EDITOR_MODE_MAPPING: EditorModeMapping = {
 
 const getEditorModeMapping = (editorMode: keyof typeof EditorModeEnum) => {
   const availableUiFeatures = EDITOR_MODE_MAPPING[editorMode];
-
   return availableUiFeatures;
 };
 
@@ -79,9 +80,14 @@ export const UiOverlay = () => {
   const editorMode = useUiStateStore((state) => {
     return state.editorMode;
   });
+  const isChatPanelOpen = useUiStateStore((state) => {
+    return state.isChatPanelOpen;
+  });
+
   const availableTools = useMemo(() => {
     return getEditorModeMapping(editorMode);
   }, [editorMode]);
+
   const rendererEl = useUiStateStore((state) => {
     return state.rendererEl;
   });
@@ -92,24 +98,14 @@ export const UiOverlay = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'absolute',
-          width: 0,
-          height: 0,
-          top: 0,
-          left: 0
-        }}
-      >
+      <Box sx={{ position: 'absolute', width: 0, height: 0, top: 0, left: 0 }}>
         {availableTools.includes('ITEM_CONTROLS') && itemControls && (
           <UiElement
             sx={{
               position: 'absolute',
               width: '360px',
               overflowY: 'scroll',
-              '&::-webkit-scrollbar': {
-                display: 'none'
-              }
+              '&::-webkit-scrollbar': { display: 'none' }
             }}
             style={{
               left: appPadding.x,
@@ -123,10 +119,7 @@ export const UiOverlay = () => {
 
         {availableTools.includes('TOOL_MENU') && (
           <Box
-            sx={{
-              position: 'absolute',
-              transform: 'translateX(-100%)'
-            }}
+            sx={{ position: 'absolute', transform: 'translateX(-100%)' }}
             style={{
               left: rendererSize.width - appPadding.x,
               top: appPadding.y
@@ -138,10 +131,7 @@ export const UiOverlay = () => {
 
         {availableTools.includes('ZOOM_CONTROLS') && (
           <Box
-            sx={{
-              position: 'absolute',
-              transformOrigin: 'bottom left'
-            }}
+            sx={{ position: 'absolute', transformOrigin: 'bottom left' }}
             style={{
               top: rendererSize.height - appPadding.y * 2,
               left: appPadding.x
@@ -153,13 +143,8 @@ export const UiOverlay = () => {
 
         {availableTools.includes('MAIN_MENU') && (
           <Box
-            sx={{
-              position: 'absolute'
-            }}
-            style={{
-              top: appPadding.y,
-              left: appPadding.x
-            }}
+            sx={{ position: 'absolute' }}
+            style={{ top: appPadding.y, left: appPadding.x }}
           >
             <MainMenu />
           </Box>
@@ -199,6 +184,50 @@ export const UiOverlay = () => {
                 </Typography>
               </Stack>
             </UiElement>
+          </Box>
+        )}
+
+        {availableTools.includes('TOOL_MENU') && (
+          <Box
+            sx={{
+              position: 'absolute',
+              transform: 'translateX(-100%)',
+              display: 'flex',
+              gap: 1
+            }}
+            style={{
+              left: rendererSize.width - appPadding.x,
+              top: rendererSize.height - appPadding.y * 2,
+              transformOrigin: 'bottom right'
+            }}
+          >
+            <UiElement>
+              <IconButton
+                name="AI Chat"
+                Icon={<Chat />}
+                onClick={() => {
+                  return uiStateActions.setIsChatPanelOpen(!isChatPanelOpen);
+                }}
+                isActive={isChatPanelOpen}
+              />
+            </UiElement>
+          </Box>
+        )}
+
+        {isChatPanelOpen && (
+          <Box
+            sx={{
+              position: 'absolute',
+              transform: 'translateX(-100%) translateY(-100%)'
+            }}
+            style={{
+              left: rendererSize.width - appPadding.x,
+              top: rendererSize.height - appPadding.y * 2 - spacing(1),
+              width: 350,
+              maxHeight: rendererSize.height - appPadding.y * 4
+            }}
+          >
+            <ChatPanel />
           </Box>
         )}
 

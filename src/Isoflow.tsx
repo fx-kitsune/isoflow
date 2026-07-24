@@ -21,17 +21,18 @@ const App = ({
   onModelUpdated,
   enableDebugTools = false,
   editorMode = 'EDITABLE',
-  renderer
+  renderer,
+  llmOptions
 }: IsoflowProps) => {
-  const uiStateActions = useUiStateStore((state) => {
-    return state.actions;
-  });
+  const uiStateActions = useUiStateStore((state) => state.actions);
   const initialDataManager = useInitialDataManager();
-  const model = useModelStore((state) => {
-    return modelFromModelStore(state);
-  });
+  const model = useModelStore((state) => modelFromModelStore(state));
 
   const { load } = initialDataManager;
+
+  useEffect(() => {
+    uiStateActions.setLlmOptions(llmOptions);
+  }, [llmOptions, uiStateActions]);
 
   useEffect(() => {
     load({ ...INITIAL_DATA, ...initialData });
@@ -50,7 +51,6 @@ const App = ({
 
   useEffect(() => {
     if (!initialDataManager.isReady || !onModelUpdated) return;
-
     onModelUpdated(model);
   }, [model, initialDataManager.isReady, onModelUpdated]);
 
@@ -63,15 +63,7 @@ const App = ({
   return (
     <>
       <GlobalStyles />
-      <Box
-        sx={{
-          width,
-          height,
-          position: 'relative',
-          overflow: 'hidden',
-          transform: 'translateZ(0)'
-        }}
-      >
+      <Box sx={{ width, height, position: 'relative', overflow: 'hidden', transform: 'translateZ(0)' }}>
         <Renderer {...renderer} />
         <UiOverlay />
       </Box>
@@ -82,10 +74,7 @@ const App = ({
 export const Isoflow = (props: IsoflowProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <ModelProvider
-        collabRoomId={props.collabRoomId}
-        enableBrowserStorage={props.enableBrowserStorage}
-      >
+      <ModelProvider collabRoomId={props.collabRoomId} enableBrowserStorage={props.enableBrowserStorage}>
         <SceneProvider>
           <UiStateProvider>
             <App {...props} />
@@ -97,23 +86,10 @@ export const Isoflow = (props: IsoflowProps) => {
 };
 
 const useIsoflow = () => {
-  const rendererEl = useUiStateStore((state) => {
-    return state.rendererEl;
-  });
-
-  const ModelActions = useModelStore((state) => {
-    return state.actions;
-  });
-
-  const uiStateActions = useUiStateStore((state) => {
-    return state.actions;
-  });
-
-  return {
-    Model: ModelActions,
-    uiState: uiStateActions,
-    rendererEl
-  };
+  const rendererEl = useUiStateStore((state) => state.rendererEl);
+  const ModelActions = useModelStore((state) => state.actions);
+  const uiStateActions = useUiStateStore((state) => state.actions);
+  return { Model: ModelActions, uiState: uiStateActions, rendererEl };
 };
 
 export { useIsoflow };

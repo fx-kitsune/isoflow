@@ -1,6 +1,7 @@
 import { Coords, EditorModeEnum, MainMenuOptions } from './common';
 import { Icon } from './model';
 import { ItemReference } from './scene';
+import { LlmOptions } from './isoflowProps';
 
 interface AddItemControls {
   type: 'ADD_ITEM';
@@ -139,6 +140,7 @@ export interface UiState {
   mode: Mode;
   dialog: keyof typeof DialogTypeEnum | null;
   isMainMenuOpen: boolean;
+  isChatPanelOpen: boolean;
   itemControls: ItemControls | null;
   contextMenu: ContextMenu | null;
   zoom: number;
@@ -146,6 +148,7 @@ export interface UiState {
   mouse: Mouse;
   rendererEl: HTMLDivElement | null;
   enableDebugTools: boolean;
+  llmOptions?: LlmOptions;
 }
 
 export interface UiStateActions {
@@ -158,6 +161,7 @@ export interface UiStateActions {
   incrementZoom: () => void;
   decrementZoom: () => void;
   setIsMainMenuOpen: (isOpen: boolean) => void;
+  setIsChatPanelOpen: (isOpen: boolean) => void;
   setDialog: (dialog: keyof typeof DialogTypeEnum | null) => void;
   setZoom: (zoom: number) => void;
   setScroll: (scroll: Scroll) => void;
@@ -166,6 +170,7 @@ export interface UiStateActions {
   setMouse: (mouse: Mouse) => void;
   setRendererEl: (el: HTMLDivElement) => void;
   setEnableDebugTools: (enabled: boolean) => void;
+  setLlmOptions: (llmOptions?: LlmOptions) => void;
 }
 
 export type UiStateStore = UiState & {
