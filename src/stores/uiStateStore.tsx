@@ -20,6 +20,7 @@ const initialState = () => {
       mode: getStartingMode('EXPLORABLE_READONLY'),
       iconCategoriesState: [],
       isMainMenuOpen: false,
+      isChatPanelOpen: false,
       dialog: null,
       rendererEl: null,
       contextMenu: null,
@@ -30,6 +31,7 @@ const initialState = () => {
       },
       itemControls: null,
       enableDebugTools: false,
+      llmOptions: undefined,
       actions: {
         setView: (view) => {
           set({ view });
@@ -63,6 +65,9 @@ const initialState = () => {
         setIsMainMenuOpen: (isMainMenuOpen) => {
           set({ isMainMenuOpen, itemControls: null });
         },
+        setIsChatPanelOpen: (isChatPanelOpen) => {
+          set({ isChatPanelOpen });
+        },
         incrementZoom: () => {
           const { zoom } = get();
           set({ zoom: incrementZoom(zoom) });
@@ -91,6 +96,9 @@ const initialState = () => {
         },
         setRendererEl: (el) => {
           set({ rendererEl: el });
+        },
+        setLlmOptions: (llmOptions) => {
+          set({ llmOptions });
         }
       }
     };
